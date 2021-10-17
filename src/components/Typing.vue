@@ -11,7 +11,7 @@
     >
       START
     </button>
-    <div v-if="startFlag">
+    <div v-if="startFlag" class="mb-20">
       <div class="question mb-20">{{ current_question }}</div>
       <div class="clear" v-if="current_question_counts === question_counts">
         Clear!
@@ -24,6 +24,9 @@
       </div>
       <div>{{ current_question_counts }}/{{ question_counts }}</div>
     </div>
+    <button class="startButton" v-on:click="gameRestart" v-if="startFlag">
+      RESTART
+    </button>
   </div>
 </template>
 
@@ -57,6 +60,11 @@ export default {
       this.$nextTick(function() {
         document.getElementById("typeForm").focus();
       });
+    },
+    gameRestart() {
+      this.startFlag = false;
+      this.questions = ["apple", "banana", "chocolate", "donut", "espresso"];
+      this.current_question_counts = 0;
     },
   },
   mounted: function() {
