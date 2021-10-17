@@ -1,4 +1,5 @@
 # vue-typing
+youtubeの動画を参考にしてvueでタイピングゲームを作ります
 
 ## Project setup
 ```
